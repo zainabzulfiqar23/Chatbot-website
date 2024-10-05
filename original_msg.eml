@@ -1,0 +1,619 @@
+Delivered-To: zuhairazulfiqar463@gmail.com
+Received: by 2002:a17:504:b5a:b0:1bfe:784a:eca8 with SMTP id f26csp816333njd;
+        Fri, 4 Oct 2024 20:54:23 -0700 (PDT)
+X-Received: by 2002:a05:6402:434b:b0:5c8:9459:b9f1 with SMTP id 4fb4d7f45d1cf-5c8d2e17697mr3064653a12.13.1728100462784;
+        Fri, 04 Oct 2024 20:54:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1728100462; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FJ3j5lFRfWQBS2QJLxXVBYJco/6GyeTSNjE9BhbqBSuvvithZfNLk4nha8gf8ubp1a
+         KLz+zaCWKyCMhzUsJbaC4HCkStFpChNW0oKms1b66ExQGvOWh/PE7dfLXcjFMcXGivIF
+         9qFKKGll6EUpMtLRvqO/EQ+3sOnTXIYgFanM3SjY05UeUqtmuf70WJkyNMMyw7UOD8ol
+         o6UaAWHLWFjSREY/P4codRDXeayH7Bgq8LioadxIJcIu8ITpsEhO5BcuVOutVS5PdhDP
+         JxsJisn8E91D1nRhfrcBeJwYnM2Jk4uq8/9xeAphE9rSpcwAPs98C2v65mlQjHkMR35G
+         dPBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=NdVc6M72fKmoUSrUMPZLrjlrm1F1zrnk8tFj5nO00Tc=;
+        fh=qE4VmSr693pOHfycXbcdwBRyG056uC8zdxrmK7ryJgw=;
+        b=PGjPuNhAsCrMXOxinXXVIMo9SLDlyOroArKJQ84oCm+h1bQM5vYfD8llg5ktHAameC
+         VIP4UJsZFb+O8Cc6u4WdxXCsS/cDcL5N8QkM90g97qsOTmlcFfS3OOMnLnfpXAo20UR4
+         SB8WnzfyvX0EIsjoSufN//o+tMPY30hEa8kBZ6gULnnRbJ31FuuWRNQKeETAkJF5w+/r
+         wGyHREy/HHrQJtvuVjXRnvO9lOu/WXcPzlF+frF+8OFA6eS7uWw8NwhjmeKR/Dmaxkea
+         pqJuoi9TxYsXa4GJk0gFA44jbzad7W2gRiQjGbZnsC7H0ZjXsYtgJ5ba1dOdDJB1ILyf
+         xdUA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="f0/ZPuG0";
+       spf=pass (google.com: domain of noorulh667@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=noorulh667@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <noorulh667@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 4fb4d7f45d1cf-5c8e05e37f5sor212924a12.7.2024.10.04.20.54.22
+        for <zuhairazulfiqar463@gmail.com>
+        (Google Transport Security);
+        Fri, 04 Oct 2024 20:54:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noorulh667@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="f0/ZPuG0";
+       spf=pass (google.com: domain of noorulh667@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=noorulh667@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728100462; x=1728705262; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NdVc6M72fKmoUSrUMPZLrjlrm1F1zrnk8tFj5nO00Tc=;
+        b=f0/ZPuG0yFzKmkRrdZOHWEZS1Z/mh+i8fUJmOVq5v3ACnwxVfGTGv8nQzgT8/XnPk4
+         QWpcCjYvOP3ZkWp1mdaPHAsS59R4uyKAfF/c8maJ/WHd1Er/Mbquc6SfMjtoAzH3/9/9
+         7LZgLpzuuQfXnsXRsUmSa6pC27Taf/CmsxZZ5i/+p8Wl5vS2iN6oCJcty/35Dvx3aQ1D
+         Hxbsdx1B9Rbg5BDeD7vQRjUIrpSSHDLmJ5/QbGXNIz3C4fWl87UPnHK95MuHiQpcIdIx
+         cKZA65jTj4Tp/gO0MhVNcALo1YXPx+UuzmMN/WOo0EsQokRJDzcwr8363vHGVMtGPhCx
+         qs+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728100462; x=1728705262;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NdVc6M72fKmoUSrUMPZLrjlrm1F1zrnk8tFj5nO00Tc=;
+        b=OJqlnBj4KLFYxcaWbbO38USvLrZ0bGCyHyeGYnYHicNdXbIospL4gaHoAs7kzPJAft
+         Tnr+O6D2OPhQ2DQmRTcpWhRYkkCK6cYWPTeUjsOQE3BNNOgolejISSkpGBrAJDcgmpy3
+         VETUdxZlX7RiUO6CWZdJoBYl6CFFNyxBO/im2HGmHrdtQwQufGVibkUTMQHFMMLePC4P
+         CduqnNGq2t29KDo+cq09F4csr3rftxje8Xf4/otDimrfToGTq42GARxLSF49JaIhz+eF
+         ogUdYh49s6OJVcNdZuqRwGNW62MtfZAEA3dGedy1XWBhPiETigzm8hvA8eZszyG80vUT
+         xfjg==
+X-Gm-Message-State: AOJu0YyAE5bFWNxVsyKw3tIqKaKItjBmar6OWmHDmLaK2zPM+x5IR6Q7
+	jPFGsxhdhIySMUcQD4SeSK+s90QvfuxoFZGs5uc4yNCcA5ORdKEjAL6+I097vojKoz3FvffnpWK
+	24WqUhTAZCV0VgyPiXB6YFjT7M34PS5M+vgQ=
+X-Google-Smtp-Source: AGHT+IGP1qk/xMk24JJUQsLMVFtc+LbctJbw5CunhEfX3AASKO6+g45cWMK7iRs809CiEHjEGJYi+EG6/k2p57KJYmU=
+X-Received: by 2002:a05:6402:26c8:b0:5c8:ae9e:baba with SMTP id
+ 4fb4d7f45d1cf-5c8d2dfcf50mr2953858a12.2.1728100461630; Fri, 04 Oct 2024
+ 20:54:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAEZ49F2DkvcoQJ8A9K7Vg+Zr_8od0tWD=9UeTwkswr7_VviXew@mail.gmail.com>
+ <CALKg5f7ePyum_TFiTeGQf49ZvcFyu+8eSoePUPcOV3tDkhe9vw@mail.gmail.com> <CAEZ49F3EGB0fDD0qu4WhxT-g-Ep09t4Y4UNm8LTk30XVNncDKw@mail.gmail.com>
+In-Reply-To: <CAEZ49F3EGB0fDD0qu4WhxT-g-Ep09t4Y4UNm8LTk30XVNncDKw@mail.gmail.com>
+From: Noor Ul Huda <noorulh667@gmail.com>
+Date: Sat, 5 Oct 2024 08:56:54 +0500
+Message-ID: <CAEZ49F313xchaixy9PPbA6qex9Vq+dziPdBPhFE07b03b7jNmw@mail.gmail.com>
+Subject: Re:
+To: zainab zulfiqar <zuhairazulfiqar463@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000026e12e0623b2be7f"
+
+--00000000000026e12e0623b2be7f
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+ // A simple chatbot that responds with some predefined answers
+ function chatbot(input) {
+    let output =3D "";
+    input =3D input.toLowerCase();
+    if (input.includes("hello") || input.includes("hi")) {
+      output =3D "Hello, nice to meet you!";
+    } else if (input.includes("how are you")) {
+      output =3D "I'm doing fine, thank you for asking.";
+    } else if (input.includes("what is your name")) {
+      output =3D "My name is Jarvis, I'm a chatbot.";
+    } else if (input.includes("what can you do")) {
+      output =3D "I can chat with you and answer some simple questions.";
+    } else if (input.includes("tell me a joke")) {
+      output =3D "Why did the chicken go to the seance? To get to the other
+side.";
+    } else if (input.includes("what is web development process?")) {
+      output =3D "1. Combines front-end and back-end development 2. Covers
+all aspects of website development";
+    } else if (input.includes("what is back-end development")) {
+      output =3D "Back-end Development: Server-side scripting (PHP, Ruby,
+Python, Java). Database management (MySQL, MongoDB, PostgreSQL). API
+integration and development. Server configuration and deployment";
+    }else if (input.includes("career paths of website developer ")) {
+      output =3D "1. Web developer 2. Front-end developer 3. Back-end
+develope 4. Full-stack developer 5. Web designer 6. UX/UI designer 7. Web
+project manager";
+    }else if (input.includes("salary of website developer in Pakistan ")) {
+      output =3D "The average salary for a website developer in Pakistan is
+around Rs 41,936 per month =C2=B9. However, salaries can vary depending on
+factors such as location, experience, and specific job requirements. For
+instance, senior web developers can earn up to Rs 63,237 per month, while
+entry-level web developers start at around Rs 28,414 per month =C2=B9.";
+    }else if (input.includes("experienced base Salary?")) {
+      output =3D "Junior Web Developer_: Rs 28,414 - Rs 60,000 per month .
+Senior Web Developer_: Rs 63,237 - Rs 135,000 per month";
+    }else if (input.includes("cities based salaries in Pakistan")) {
+      output =3D "Quetta: Rs 50,070 per month . Hyderabad: Rs 48,099 per
+month .Islamabad: Rs 45,997 per month . Lahore: Rs 45,210 per month .
+Karachi: Rs 41,026 per month";
+    }else if (input.includes("Pakistan IT'S industry outlook ")) {
+      output =3D "Growing IT exports (reached $2.5 billion in 2022).
+Government initiatives (e.g., Digital Pakistan Vision). Increasing
+e-commerce and startup ecosystem. Expanding tech hubs (Lahore, Karachi,
+Islamabad).";
+    }else if (input.includes("what is CSS?")) {
+      output =3D "CSS, or Cascading Style Sheets, is a stylesheet language
+used to control the presentation and layout of HTML documents. While HTML
+structures the content, CSS is responsible for how that content looks,
+including colors, fonts, spacing, and positioning.";
+    }else if (input.includes("what is javascript?")) {
+      output =3D "JavaScript (JS) is a high-level, dynamic programming
+language primarily used for enhancing the interactivity and functionality
+of websites. It's one of the core technologies of the web, alongside HTML
+and CSS. While HTML structures content and CSS styles it, JavaScript adds
+behavior to web pages.";
+    }else if (input.includes("what is web development?")) {
+      output =3D "Web development is the process of creating and maintainin=
+g
+websites and web applications. It involves a combination of various
+technologies, programming languages, and tools to build everything from
+simple static pages to complex dynamic applications";
+    }else if (input.includes("which web development specialization are in
+demand now a days ")) {
+      output =3D "1. Front-end development (React, Angular, Vue.js). 2.
+Back-end development (Node.js, PHP, Ruby). 3. Full-stack development. 4.
+Mobile app development (iOS, Android). 5. E-commerce development
+(WordPress, Magento) 6. Cybersecurity.";
+    }else if (input.includes("tips for success in web development ")) {
+      output =3D "1. Build a strong portfolio. 2. Develop in-demand skills.
+3. Network and join online communities. 4. Stay updated with industry
+trends. 5. Consider freelancing or entrepreneurship.";
+    }else if (input.includes("best web making tools for beginners")) {
+      output =3D "IWix Squarespace Weebly.";
+    }else if (input.includes("what is front-end development")) {
+      output =3D "Front-end development refers to the part of web developme=
+nt
+that involves creating the user interface and user experience of a website
+or application. It's all about what users see and interact with directly in
+their web browsers. This includes the design, layout, and interactive
+elements.      Key technologies used in front-end development include:1.
+**HTML (HyperText Markup Language)**: The backbone of web content, used to
+structure the information on a webpage.2. **CSS (Cascading Style Sheets)**:
+Used to style and layout web pages, controlling aspects like colors, fonts,
+spacing, and responsiveness to different screen sizes.3. **JavaScript**: A
+programming language that adds interactivity to web pages, allowing for
+dynamic content updates, animations, and more complex user
+interactions.Front-end developers often use frameworks and libraries like
+React, Angular, or Vue.js to streamline development and enhance
+functionality. They also need to ensure that websites are responsive (work
+well on various devices) and accessible to all users.Overall, front-end
+development plays a crucial role in creating engaging and user-friendly web
+experiences.";
+    } else if (input.includes("what is html?")) {
+        output =3D "HTML, or HyperText Markup Language, is the standard
+language used to create and structure content on the web. It allows you to
+define elements such as headings, paragraphs, links, images, and other
+multimedia. HTML uses a system of tags, which are enclosed in angle
+brackets (e.g., <tagname>), to denote different types of content and their
+roles on a webpage.";
+      } else {
+      output =3D "Sorry, I don't understand that. Please try something else=
+.";
+    }
+    return output;
+  }
+
+  // Display the user message on the chat
+  function displayUserMessage(message) {
+    let chat =3D document.getElementById("chat");
+    let userMessage =3D document.createElement("div");
+    userMessage.classList.add("message");
+    userMessage.classList.add("user");
+    let userAvatar =3D document.createElement("div");
+    userAvatar.classList.add("avatar");
+    let userText =3D document.createElement("div");
+    userText.classList.add("text");
+    userText.innerHTML =3D message;
+    userMessage.appendChild(userAvatar);
+    userMessage.appendChild(userText);
+    chat.appendChild(userMessage);
+    chat.scrollTop =3D chat.scrollHeight;
+  }
+
+  // Display the bot message on the chat
+  function displayBotMessage(message) {
+    let chat =3D document.getElementById("chat");
+    let botMessage =3D document.createElement("div");
+    botMessage.classList.add("message");
+    botMessage.classList.add("bot");
+    let botAvatar =3D document.createElement("div");
+    botAvatar.classList.add("avatar");
+    let botText =3D document.createElement("div");
+    botText.classList.add("text");
+    botText.innerHTML =3D message;
+    botMessage.appendChild(botAvatar);
+    botMessage.appendChild(botText);
+    chat.appendChild(botMessage);
+    chat.scrollTop =3D chat.scrollHeight;
+  }
+
+  // Send the user message and get the bot response
+  function sendMessage() {
+    let input =3D document.getElementById("input").value;
+    if (input) {
+      displayUserMessage(input);
+      let output =3D chatbot(input);
+      setTimeout(function() {
+        displayBotMessage(output);
+      }, 1000);
+      document.getElementById("input").value =3D "";
+    }
+  }
+
+  // Add a click event listener to the button
+  document.getElementById("button").addEventListener("click", sendMessage);
+
+  // Add a keypress event listener to the input
+  document.getElementById("input").addEventListener("keypress", function(
+event) {
+    if (event.keyCode =3D=3D 13) {
+      sendMessage();
+    }
+  });
+
+
+On Sat, Oct 5, 2024 at 8:55=E2=80=AFAM Noor Ul Huda <noorulh667@gmail.com> =
+wrote:
+
+>
+>
+> On Thu, Sep 26, 2024 at 1:53=E2=80=AFPM zainab zulfiqar <
+> zuhairazulfiqar463@gmail.com> wrote:
+>
+>> folder of chatbot
+>>
+>> On Thu, Sep 26, 2024 at 1:52=E2=80=AFAM Noor Ul Huda <noorulh667@gmail.c=
+om>
+>> wrote:
+>>
+>>> Assalam o Alaikum wrwb
+>>>
+>>>
+
+--00000000000026e12e0623b2be7f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div style=3D"color:rgb(102,136,204);background-color:rgb(=
+0,12,24);font-family:Consolas,&quot;Courier New&quot;,monospace;font-size:1=
+4px;line-height:19px;white-space:pre"><br><div>=C2=A0<span style=3D"color:r=
+gb(56,72,135)">// A simple chatbot that responds with some predefined answe=
+rs</span></div><div>=C2=A0<span style=3D"color:rgb(153,102,184);font-style:=
+italic">function</span> <span style=3D"color:rgb(221,187,136)">chatbot</spa=
+n>(<span style=3D"color:rgb(34,119,255);font-style:italic">input</span>) {<=
+/div><div>=C2=A0 =C2=A0 <span style=3D"color:rgb(153,102,184);font-style:it=
+alic">let</span> output <span style=3D"color:rgb(34,85,136)">=3D</span> <sp=
+an style=3D"color:rgb(34,170,68)">&quot;&quot;</span>;</div><div>=C2=A0 =C2=
+=A0 <span style=3D"color:rgb(34,119,255);font-style:italic">input</span> <s=
+pan style=3D"color:rgb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,1=
+19,255);font-style:italic">input</span>.<span style=3D"color:rgb(221,187,13=
+6)">toLowerCase</span>();</div><div>=C2=A0 =C2=A0 <span style=3D"color:rgb(=
+34,85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:ital=
+ic">input</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<sp=
+an style=3D"color:rgb(34,170,68)">&quot;hello&quot;</span>) <span style=3D"=
+color:rgb(34,85,136)">||</span> <span style=3D"color:rgb(34,119,255);font-s=
+tyle:italic">input</span>.<span style=3D"color:rgb(221,187,136)">includes</=
+span>(<span style=3D"color:rgb(34,170,68)">&quot;hi&quot;</span>)) {</div><=
+div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</s=
+pan> <span style=3D"color:rgb(34,170,68)">&quot;Hello, nice to meet you!&qu=
+ot;</span>;</div><div>=C2=A0 =C2=A0 } <span style=3D"color:rgb(34,85,136)">=
+else</span> <span style=3D"color:rgb(34,85,136)">if</span> (<span style=3D"=
+color:rgb(34,119,255);font-style:italic">input</span>.<span style=3D"color:=
+rgb(221,187,136)">includes</span>(<span style=3D"color:rgb(34,170,68)">&quo=
+t;how are you&quot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span =
+style=3D"color:rgb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,6=
+8)">&quot;I&#39;m doing fine, thank you for asking.&quot;</span>;</div><div=
+>=C2=A0 =C2=A0 } <span style=3D"color:rgb(34,85,136)">else</span> <span sty=
+le=3D"color:rgb(34,85,136)">if</span> (<span style=3D"color:rgb(34,119,255)=
+;font-style:italic">input</span>.<span style=3D"color:rgb(221,187,136)">inc=
+ludes</span>(<span style=3D"color:rgb(34,170,68)">&quot;what is your name&q=
+uot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:=
+rgb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;My na=
+me is Jarvis, I&#39;m a chatbot.&quot;</span>;</div><div>=C2=A0 =C2=A0 } <s=
+pan style=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,=
+85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic"=
+>input</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<span =
+style=3D"color:rgb(34,170,68)">&quot;what can you do&quot;</span>)) {</div>=
+<div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</=
+span> <span style=3D"color:rgb(34,170,68)">&quot;I can chat with you and an=
+swer some simple questions.&quot;</span>;</div><div>=C2=A0 =C2=A0 } <span s=
+tyle=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,85,13=
+6)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic">inpu=
+t</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<span style=
+=3D"color:rgb(34,170,68)">&quot;tell me a joke&quot;</span>)) {</div><div>=
+=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</span>=
+ <span style=3D"color:rgb(34,170,68)">&quot;Why did the chicken go to the s=
+eance? To get to the other side.&quot;</span>;</div><div>=C2=A0 =C2=A0 } <s=
+pan style=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,=
+85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic"=
+>input</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<span =
+style=3D"color:rgb(34,170,68)">&quot;what is web development process?&quot;=
+</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(=
+34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;1. Combin=
+es front-end and back-end development 2. Covers all aspects of website deve=
+lopment&quot;</span>;</div><div>=C2=A0 =C2=A0 } <span style=3D"color:rgb(34=
+,85,136)">else</span> <span style=3D"color:rgb(34,85,136)">if</span> (<span=
+ style=3D"color:rgb(34,119,255);font-style:italic">input</span>.<span style=
+=3D"color:rgb(221,187,136)">includes</span>(<span style=3D"color:rgb(34,170=
+,68)">&quot;what is back-end development&quot;</span>)) {</div><div>=C2=A0 =
+=C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</span> <span =
+style=3D"color:rgb(34,170,68)">&quot;Back-end Development: Server-side scri=
+pting (PHP, Ruby, Python, Java). Database management (MySQL, MongoDB, Postg=
+reSQL). API integration and development. Server configuration and deploymen=
+t&quot;</span>;</div><div>=C2=A0 =C2=A0 }<span style=3D"color:rgb(34,85,136=
+)">else</span> <span style=3D"color:rgb(34,85,136)">if</span> (<span style=
+=3D"color:rgb(34,119,255);font-style:italic">input</span>.<span style=3D"co=
+lor:rgb(221,187,136)">includes</span>(<span style=3D"color:rgb(34,170,68)">=
+&quot;career paths of website developer &quot;</span>)) {</div><div>=C2=A0 =
+=C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</span> <span =
+style=3D"color:rgb(34,170,68)">&quot;1. Web developer 2. Front-end develope=
+r 3. Back-end develope 4. Full-stack developer 5. Web designer 6. UX/UI des=
+igner 7. Web project manager&quot;</span>;</div><div>=C2=A0 =C2=A0 }<span s=
+tyle=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,85,13=
+6)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic">inpu=
+t</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<span style=
+=3D"color:rgb(34,170,68)">&quot;salary of website developer in Pakistan &qu=
+ot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:r=
+gb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;The av=
+erage salary for a website developer in Pakistan is around Rs 41,936 per mo=
+nth =C2=B9. However, salaries can vary depending on factors such as locatio=
+n, experience, and specific job requirements. For instance, senior web deve=
+lopers can earn up to Rs 63,237 per month, while entry-level web developers=
+ start at around Rs 28,414 per month =C2=B9.&quot;</span>;</div><div>=C2=A0=
+ =C2=A0 }<span style=3D"color:rgb(34,85,136)">else</span> <span style=3D"co=
+lor:rgb(34,85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-st=
+yle:italic">input</span>.<span style=3D"color:rgb(221,187,136)">includes</s=
+pan>(<span style=3D"color:rgb(34,170,68)">&quot;experienced base Salary?&qu=
+ot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:r=
+gb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;Junior=
+ Web Developer_: Rs 28,414 - Rs 60,000 per month . Senior Web Developer_: R=
+s 63,237 - Rs 135,000 per month&quot;</span>;</div><div>=C2=A0 =C2=A0 }<spa=
+n style=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,85=
+,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic">i=
+nput</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<span st=
+yle=3D"color:rgb(34,170,68)">&quot;cities based salaries in Pakistan&quot;<=
+/span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(3=
+4,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;Quetta: Rs=
+ 50,070 per month . Hyderabad: Rs 48,099 per month .Islamabad: Rs 45,997 pe=
+r month . Lahore: Rs 45,210 per month . Karachi: Rs 41,026 per month&quot;<=
+/span>;</div><div>=C2=A0 =C2=A0 }<span style=3D"color:rgb(34,85,136)">else<=
+/span> <span style=3D"color:rgb(34,85,136)">if</span> (<span style=3D"color=
+:rgb(34,119,255);font-style:italic">input</span>.<span style=3D"color:rgb(2=
+21,187,136)">includes</span>(<span style=3D"color:rgb(34,170,68)">&quot;Pak=
+istan IT&#39;S industry outlook &quot;</span>)) {</div><div>=C2=A0 =C2=A0 =
+=C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</span> <span style=
+=3D"color:rgb(34,170,68)">&quot;Growing IT exports (reached $2.5 billion in=
+ 2022). Government initiatives (e.g., Digital Pakistan Vision). Increasing =
+e-commerce and startup ecosystem. Expanding tech hubs (Lahore, Karachi, Isl=
+amabad).&quot;</span>;</div><div>=C2=A0 =C2=A0 }<span style=3D"color:rgb(34=
+,85,136)">else</span> <span style=3D"color:rgb(34,85,136)">if</span> (<span=
+ style=3D"color:rgb(34,119,255);font-style:italic">input</span>.<span style=
+=3D"color:rgb(221,187,136)">includes</span>(<span style=3D"color:rgb(34,170=
+,68)">&quot;what is CSS?&quot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 ou=
+tput <span style=3D"color:rgb(34,85,136)">=3D</span> <span style=3D"color:r=
+gb(34,170,68)">&quot;CSS, or Cascading Style Sheets, is a stylesheet langua=
+ge used to control the presentation and layout of HTML documents. While HTM=
+L structures the content, CSS is responsible for how that content looks, in=
+cluding colors, fonts, spacing, and positioning.&quot;</span>;</div><div>=
+=C2=A0 =C2=A0 }<span style=3D"color:rgb(34,85,136)">else</span> <span style=
+=3D"color:rgb(34,85,136)">if</span> (<span style=3D"color:rgb(34,119,255);f=
+ont-style:italic">input</span>.<span style=3D"color:rgb(221,187,136)">inclu=
+des</span>(<span style=3D"color:rgb(34,170,68)">&quot;what is javascript?&q=
+uot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:=
+rgb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;JavaS=
+cript (JS) is a high-level, dynamic programming language primarily used for=
+ enhancing the interactivity and functionality of websites. It&#39;s one of=
+ the core technologies of the web, alongside HTML and CSS. While HTML struc=
+tures content and CSS styles it, JavaScript adds behavior to web pages.&quo=
+t;</span>;</div><div>=C2=A0 =C2=A0 }<span style=3D"color:rgb(34,85,136)">el=
+se</span> <span style=3D"color:rgb(34,85,136)">if</span> (<span style=3D"co=
+lor:rgb(34,119,255);font-style:italic">input</span>.<span style=3D"color:rg=
+b(221,187,136)">includes</span>(<span style=3D"color:rgb(34,170,68)">&quot;=
+what is web development?&quot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 ou=
+tput <span style=3D"color:rgb(34,85,136)">=3D</span> <span style=3D"color:r=
+gb(34,170,68)">&quot;Web development is the process of creating and maintai=
+ning websites and web applications. It involves a combination of various te=
+chnologies, programming languages, and tools to build everything from simpl=
+e static pages to complex dynamic applications&quot;</span>;</div><div>=C2=
+=A0 =C2=A0 }<span style=3D"color:rgb(34,85,136)">else</span> <span style=3D=
+"color:rgb(34,85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font=
+-style:italic">input</span>.<span style=3D"color:rgb(221,187,136)">includes=
+</span>(<span style=3D"color:rgb(34,170,68)">&quot;which web development sp=
+ecialization are in demand now a days &quot;</span>)) {</div><div>=C2=A0 =
+=C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</span> <span =
+style=3D"color:rgb(34,170,68)">&quot;1. Front-end development (React, Angul=
+ar, Vue.js). 2. Back-end development (Node.js, PHP, Ruby). 3. Full-stack de=
+velopment. 4. Mobile app development (iOS, Android). 5. E-commerce developm=
+ent (WordPress, Magento) 6. Cybersecurity.&quot;</span>;</div><div>=C2=A0 =
+=C2=A0 }<span style=3D"color:rgb(34,85,136)">else</span> <span style=3D"col=
+or:rgb(34,85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-sty=
+le:italic">input</span>.<span style=3D"color:rgb(221,187,136)">includes</sp=
+an>(<span style=3D"color:rgb(34,170,68)">&quot;tips for success in web deve=
+lopment &quot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=
+=3D"color:rgb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&=
+quot;1. Build a strong portfolio. 2. Develop in-demand skills. 3. Network a=
+nd join online communities. 4. Stay updated with industry trends. 5. Consid=
+er freelancing or entrepreneurship.&quot;</span>;</div><div>=C2=A0 =C2=A0 }=
+<span style=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(3=
+4,85,136)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:itali=
+c">input</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<spa=
+n style=3D"color:rgb(34,170,68)">&quot;best web making tools for beginners&=
+quot;</span>)) {</div><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color=
+:rgb(34,85,136)">=3D</span> <span style=3D"color:rgb(34,170,68)">&quot;IWix=
+ Squarespace Weebly.&quot;</span>;</div><div>=C2=A0 =C2=A0 }<span style=3D"=
+color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,85,136)">if</=
+span> (<span style=3D"color:rgb(34,119,255);font-style:italic">input</span>=
+.<span style=3D"color:rgb(221,187,136)">includes</span>(<span style=3D"colo=
+r:rgb(34,170,68)">&quot;what is front-end development&quot;</span>)) {</div=
+><div>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D<=
+/span> <span style=3D"color:rgb(34,170,68)">&quot;Front-end development ref=
+ers to the part of web development that involves creating the user interfac=
+e and user experience of a website or application. It&#39;s all about what =
+users see and interact with directly in their web browsers. This includes t=
+he design, layout, and interactive elements. =C2=A0 =C2=A0 =C2=A0Key techno=
+logies used in front-end development include:1. **HTML (HyperText Markup La=
+nguage)**: The backbone of web content, used to structure the information o=
+n a webpage.2. **CSS (Cascading Style Sheets)**: Used to style and layout w=
+eb pages, controlling aspects like colors, fonts, spacing, and responsivene=
+ss to different screen sizes.3. **JavaScript**: A programming language that=
+ adds interactivity to web pages, allowing for dynamic content updates, ani=
+mations, and more complex user interactions.Front-end developers often use =
+frameworks and libraries like React, Angular, or Vue.js to streamline devel=
+opment and enhance functionality. They also need to ensure that websites ar=
+e responsive (work well on various devices) and accessible to all users.Ove=
+rall, front-end development plays a crucial role in creating engaging and u=
+ser-friendly web experiences.&quot;</span>;</div><div>=C2=A0 =C2=A0 } <span=
+ style=3D"color:rgb(34,85,136)">else</span> <span style=3D"color:rgb(34,85,=
+136)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic">in=
+put</span>.<span style=3D"color:rgb(221,187,136)">includes</span>(<span sty=
+le=3D"color:rgb(34,170,68)">&quot;what is html?&quot;</span>)) {</div><div>=
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D=
+</span> <span style=3D"color:rgb(34,170,68)">&quot;HTML, or HyperText Marku=
+p Language, is the standard language used to create and structure content o=
+n the web. It allows you to define elements such as headings, paragraphs, l=
+inks, images, and other multimedia. HTML uses a system of tags, which are e=
+nclosed in angle brackets (e.g., &lt;tagname&gt;), to denote different type=
+s of content and their roles on a webpage.&quot;</span>;</div><div>=C2=A0 =
+=C2=A0 =C2=A0 } <span style=3D"color:rgb(34,85,136)">else</span> {</div><di=
+v>=C2=A0 =C2=A0 =C2=A0 output <span style=3D"color:rgb(34,85,136)">=3D</spa=
+n> <span style=3D"color:rgb(34,170,68)">&quot;Sorry, I don&#39;t understand=
+ that. Please try something else.&quot;</span>;</div><div>=C2=A0 =C2=A0 }</=
+div><div>=C2=A0 =C2=A0 <span style=3D"color:rgb(34,85,136)">return</span> o=
+utput;</div><div>=C2=A0 }</div><br><div>=C2=A0 <span style=3D"color:rgb(56,=
+72,135)">// Display the user message on the chat</span></div><div>=C2=A0 <s=
+pan style=3D"color:rgb(153,102,184);font-style:italic">function</span> <spa=
+n style=3D"color:rgb(221,187,136)">displayUserMessage</span>(<span style=3D=
+"color:rgb(34,119,255);font-style:italic">message</span>) {</div><div>=C2=
+=A0 =C2=A0 <span style=3D"color:rgb(153,102,184);font-style:italic">let</sp=
+an> chat <span style=3D"color:rgb(34,85,136)">=3D</span> document.<span sty=
+le=3D"color:rgb(221,187,136)">getElementById</span>(<span style=3D"color:rg=
+b(34,170,68)">&quot;chat&quot;</span>);</div><div>=C2=A0 =C2=A0 <span style=
+=3D"color:rgb(153,102,184);font-style:italic">let</span> userMessage <span =
+style=3D"color:rgb(34,85,136)">=3D</span> document.<span style=3D"color:rgb=
+(221,187,136)">createElement</span>(<span style=3D"color:rgb(34,170,68)">&q=
+uot;div&quot;</span>);</div><div>=C2=A0 =C2=A0 userMessage.<span style=3D"c=
+olor:rgb(153,102,184)">classList</span>.<span style=3D"color:rgb(221,187,13=
+6)">add</span>(<span style=3D"color:rgb(34,170,68)">&quot;message&quot;</sp=
+an>);</div><div>=C2=A0 =C2=A0 userMessage.<span style=3D"color:rgb(153,102,=
+184)">classList</span>.<span style=3D"color:rgb(221,187,136)">add</span>(<s=
+pan style=3D"color:rgb(34,170,68)">&quot;user&quot;</span>);</div><div>=C2=
+=A0 =C2=A0 <span style=3D"color:rgb(153,102,184);font-style:italic">let</sp=
+an> userAvatar <span style=3D"color:rgb(34,85,136)">=3D</span> document.<sp=
+an style=3D"color:rgb(221,187,136)">createElement</span>(<span style=3D"col=
+or:rgb(34,170,68)">&quot;div&quot;</span>);</div><div>=C2=A0 =C2=A0 userAva=
+tar.<span style=3D"color:rgb(153,102,184)">classList</span>.<span style=3D"=
+color:rgb(221,187,136)">add</span>(<span style=3D"color:rgb(34,170,68)">&qu=
+ot;avatar&quot;</span>);</div><div>=C2=A0 =C2=A0 <span style=3D"color:rgb(1=
+53,102,184);font-style:italic">let</span> userText <span style=3D"color:rgb=
+(34,85,136)">=3D</span> document.<span style=3D"color:rgb(221,187,136)">cre=
+ateElement</span>(<span style=3D"color:rgb(34,170,68)">&quot;div&quot;</spa=
+n>);</div><div>=C2=A0 =C2=A0 userText.<span style=3D"color:rgb(153,102,184)=
+">classList</span>.<span style=3D"color:rgb(221,187,136)">add</span>(<span =
+style=3D"color:rgb(34,170,68)">&quot;text&quot;</span>);</div><div>=C2=A0 =
+=C2=A0 userText.innerHTML <span style=3D"color:rgb(34,85,136)">=3D</span> <=
+span style=3D"color:rgb(34,119,255);font-style:italic">message</span>;</div=
+><div>=C2=A0 =C2=A0 userMessage.<span style=3D"color:rgb(221,187,136)">appe=
+ndChild</span>(userAvatar);</div><div>=C2=A0 =C2=A0 userMessage.<span style=
+=3D"color:rgb(221,187,136)">appendChild</span>(userText);</div><div>=C2=A0 =
+=C2=A0 chat.<span style=3D"color:rgb(221,187,136)">appendChild</span>(userM=
+essage);</div><div>=C2=A0 =C2=A0 chat.scrollTop <span style=3D"color:rgb(34=
+,85,136)">=3D</span> chat.<span style=3D"color:rgb(153,102,184)">scrollHeig=
+ht</span>;</div><div>=C2=A0 }</div><br><div>=C2=A0 <span style=3D"color:rgb=
+(56,72,135)">// Display the bot message on the chat</span></div><div>=C2=A0=
+ <span style=3D"color:rgb(153,102,184);font-style:italic">function</span> <=
+span style=3D"color:rgb(221,187,136)">displayBotMessage</span>(<span style=
+=3D"color:rgb(34,119,255);font-style:italic">message</span>) {</div><div>=
+=C2=A0 =C2=A0 <span style=3D"color:rgb(153,102,184);font-style:italic">let<=
+/span> chat <span style=3D"color:rgb(34,85,136)">=3D</span> document.<span =
+style=3D"color:rgb(221,187,136)">getElementById</span>(<span style=3D"color=
+:rgb(34,170,68)">&quot;chat&quot;</span>);</div><div>=C2=A0 =C2=A0 <span st=
+yle=3D"color:rgb(153,102,184);font-style:italic">let</span> botMessage <spa=
+n style=3D"color:rgb(34,85,136)">=3D</span> document.<span style=3D"color:r=
+gb(221,187,136)">createElement</span>(<span style=3D"color:rgb(34,170,68)">=
+&quot;div&quot;</span>);</div><div>=C2=A0 =C2=A0 botMessage.<span style=3D"=
+color:rgb(153,102,184)">classList</span>.<span style=3D"color:rgb(221,187,1=
+36)">add</span>(<span style=3D"color:rgb(34,170,68)">&quot;message&quot;</s=
+pan>);</div><div>=C2=A0 =C2=A0 botMessage.<span style=3D"color:rgb(153,102,=
+184)">classList</span>.<span style=3D"color:rgb(221,187,136)">add</span>(<s=
+pan style=3D"color:rgb(34,170,68)">&quot;bot&quot;</span>);</div><div>=C2=
+=A0 =C2=A0 <span style=3D"color:rgb(153,102,184);font-style:italic">let</sp=
+an> botAvatar <span style=3D"color:rgb(34,85,136)">=3D</span> document.<spa=
+n style=3D"color:rgb(221,187,136)">createElement</span>(<span style=3D"colo=
+r:rgb(34,170,68)">&quot;div&quot;</span>);</div><div>=C2=A0 =C2=A0 botAvata=
+r.<span style=3D"color:rgb(153,102,184)">classList</span>.<span style=3D"co=
+lor:rgb(221,187,136)">add</span>(<span style=3D"color:rgb(34,170,68)">&quot=
+;avatar&quot;</span>);</div><div>=C2=A0 =C2=A0 <span style=3D"color:rgb(153=
+,102,184);font-style:italic">let</span> botText <span style=3D"color:rgb(34=
+,85,136)">=3D</span> document.<span style=3D"color:rgb(221,187,136)">create=
+Element</span>(<span style=3D"color:rgb(34,170,68)">&quot;div&quot;</span>)=
+;</div><div>=C2=A0 =C2=A0 botText.<span style=3D"color:rgb(153,102,184)">cl=
+assList</span>.<span style=3D"color:rgb(221,187,136)">add</span>(<span styl=
+e=3D"color:rgb(34,170,68)">&quot;text&quot;</span>);</div><div>=C2=A0 =C2=
+=A0 botText.innerHTML <span style=3D"color:rgb(34,85,136)">=3D</span> <span=
+ style=3D"color:rgb(34,119,255);font-style:italic">message</span>;</div><di=
+v>=C2=A0 =C2=A0 botMessage.<span style=3D"color:rgb(221,187,136)">appendChi=
+ld</span>(botAvatar);</div><div>=C2=A0 =C2=A0 botMessage.<span style=3D"col=
+or:rgb(221,187,136)">appendChild</span>(botText);</div><div>=C2=A0 =C2=A0 c=
+hat.<span style=3D"color:rgb(221,187,136)">appendChild</span>(botMessage);<=
+/div><div>=C2=A0 =C2=A0 chat.scrollTop <span style=3D"color:rgb(34,85,136)"=
+>=3D</span> chat.<span style=3D"color:rgb(153,102,184)">scrollHeight</span>=
+;</div><div>=C2=A0 }</div><br><div>=C2=A0 <span style=3D"color:rgb(56,72,13=
+5)">// Send the user message and get the bot response</span></div><div>=C2=
+=A0 <span style=3D"color:rgb(153,102,184);font-style:italic">function</span=
+> <span style=3D"color:rgb(221,187,136)">sendMessage</span>() {</div><div>=
+=C2=A0 =C2=A0 <span style=3D"color:rgb(153,102,184);font-style:italic">let<=
+/span> input <span style=3D"color:rgb(34,85,136)">=3D</span> document.<span=
+ style=3D"color:rgb(221,187,136)">getElementById</span>(<span style=3D"colo=
+r:rgb(34,170,68)">&quot;input&quot;</span>).value;</div><div>=C2=A0 =C2=A0 =
+<span style=3D"color:rgb(34,85,136)">if</span> (input) {</div><div>=C2=A0 =
+=C2=A0 =C2=A0 <span style=3D"color:rgb(221,187,136)">displayUserMessage</sp=
+an>(input);</div><div>=C2=A0 =C2=A0 =C2=A0 <span style=3D"color:rgb(153,102=
+,184);font-style:italic">let</span> output <span style=3D"color:rgb(34,85,1=
+36)">=3D</span> <span style=3D"color:rgb(221,187,136)">chatbot</span>(input=
+);</div><div>=C2=A0 =C2=A0 =C2=A0 <span style=3D"color:rgb(153,102,184)">se=
+tTimeout</span>(<span style=3D"color:rgb(153,102,184);font-style:italic">fu=
+nction</span>() {</div><div>=C2=A0 =C2=A0 =C2=A0 =C2=A0 <span style=3D"colo=
+r:rgb(221,187,136)">displayBotMessage</span>(output);</div><div>=C2=A0 =C2=
+=A0 =C2=A0 }, <span style=3D"color:rgb(242,128,208)">1000</span>);</div><di=
+v>=C2=A0 =C2=A0 =C2=A0 document.<span style=3D"color:rgb(221,187,136)">getE=
+lementById</span>(<span style=3D"color:rgb(34,170,68)">&quot;input&quot;</s=
+pan>).value <span style=3D"color:rgb(34,85,136)">=3D</span> <span style=3D"=
+color:rgb(34,170,68)">&quot;&quot;</span>;</div><div>=C2=A0 =C2=A0 }</div><=
+div>=C2=A0 }</div><br><div>=C2=A0 <span style=3D"color:rgb(56,72,135)">// A=
+dd a click event listener to the button</span></div><div>=C2=A0 document.<s=
+pan style=3D"color:rgb(221,187,136)">getElementById</span>(<span style=3D"c=
+olor:rgb(34,170,68)">&quot;button&quot;</span>).<span style=3D"color:rgb(22=
+1,187,136)">addEventListener</span>(<span style=3D"color:rgb(34,170,68)">&q=
+uot;click&quot;</span>, <span style=3D"color:rgb(221,187,136)">sendMessage<=
+/span>);</div><br><div>=C2=A0 <span style=3D"color:rgb(56,72,135)">// Add a=
+ keypress event listener to the input</span></div><div>=C2=A0 document.<spa=
+n style=3D"color:rgb(221,187,136)">getElementById</span>(<span style=3D"col=
+or:rgb(34,170,68)">&quot;input&quot;</span>).<span style=3D"color:rgb(221,1=
+87,136)">addEventListener</span>(<span style=3D"color:rgb(34,170,68)">&quot=
+;keypress&quot;</span>, <span style=3D"color:rgb(153,102,184);font-style:it=
+alic">function</span>(<span style=3D"color:rgb(34,119,255);font-style:itali=
+c">event</span>) {</div><div>=C2=A0 =C2=A0 <span style=3D"color:rgb(34,85,1=
+36)">if</span> (<span style=3D"color:rgb(34,119,255);font-style:italic">eve=
+nt</span>.<span style=3D"color:rgb(153,102,184)">keyCode</span> <span style=
+=3D"color:rgb(34,85,136)">=3D=3D</span> <span style=3D"color:rgb(242,128,20=
+8)">13</span>) {</div><div>=C2=A0 =C2=A0 =C2=A0 <span style=3D"color:rgb(22=
+1,187,136)">sendMessage</span>();</div><div>=C2=A0 =C2=A0 }</div><div>=C2=
+=A0 });</div><br></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr=
+" class=3D"gmail_attr">On Sat, Oct 5, 2024 at 8:55=E2=80=AFAM Noor Ul Huda =
+&lt;<a href=3D"mailto:noorulh667@gmail.com">noorulh667@gmail.com</a>&gt; wr=
+ote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px=
+ 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D=
+"ltr"><br></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gm=
+ail_attr">On Thu, Sep 26, 2024 at 1:53=E2=80=AFPM zainab zulfiqar &lt;<a hr=
+ef=3D"mailto:zuhairazulfiqar463@gmail.com" target=3D"_blank">zuhairazulfiqa=
+r463@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" st=
+yle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padd=
+ing-left:1ex"><div dir=3D"ltr">folder of chatbot</div><br><div class=3D"gma=
+il_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Sep 26, 2024 at 1:5=
+2=E2=80=AFAM Noor Ul Huda &lt;<a href=3D"mailto:noorulh667@gmail.com" targe=
+t=3D"_blank">noorulh667@gmail.com</a>&gt; wrote:<br></div><blockquote class=
+=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rg=
+b(204,204,204);padding-left:1ex"><div dir=3D"auto">Assalam o Alaikum wrwb=
+=C2=A0<div dir=3D"auto"><br></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+
+--00000000000026e12e0623b2be7f--
